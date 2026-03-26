@@ -1,0 +1,980 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyde & Hare -- Sheepskin Rug Tracker | 2026-03-26</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --obsidian-black:   #131316;
+    --kova-azure:       #0E86F5;
+    --kova-cyan:        #22D3EE;
+    --kova-emerald:     #34D399;
+    --royal-blue:       #0E86F5;
+    --vivid-violet:     #22D3EE;
+    --neon-lime:        #34D399;
+    --card-bg:          #1A1A1F;
+    --card-border:      #262630;
+    --text-primary:     #EAEAEA;
+    --text-secondary:   #888888;
+    --text-muted:       #555555;
+    --divider:          #2A2A30;
+    --positive-glow:    rgba(52,211,153,0.15);
+    --blue-glow:        rgba(14,134,245,0.25);
+    --cyan-glow:        rgba(34,211,238,0.18);
+    --violet-glow:      rgba(34,211,238,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: var(--obsidian-black);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER BAR ── */
+  .report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .report-header .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .report-header .brand-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+  .report-header .brand-sub {
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .report-header .report-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  /* ── SECTION TITLES ── */
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+  }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--kova-azure);
+    display: inline-block;
+  }
+  h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.18em;
+  }
+
+  /* ── HEADLINE + DESCRIPTION PAIRING ── */
+  .section-desc {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-transform: none;
+    letter-spacing: normal;
+    max-width: 640px;
+  }
+  h1 + .section-desc { margin-top: 4px; }
+  h2 + .section-desc { margin-top: -8px; }
+
+  /* ── SECTION LABELS (small category markers) ── */
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--kova-cyan);
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  /* ── KPI ROW ── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .kpi-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--kova-azure);
+  }
+  .kpi-box .kpi-delta {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .kpi-delta.positive { color: var(--kova-emerald); }
+  .kpi-delta.negative { color: var(--text-secondary); }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead th {
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--divider);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-primary);
+  }
+  tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+  /* Accent values in tables */
+  .val-blue   { color: var(--kova-azure); font-weight: 600; }
+  .val-violet { color: var(--kova-cyan); font-weight: 600; }
+  .val-cyan   { color: var(--kova-cyan); font-weight: 600; }
+  .val-green  { color: var(--kova-emerald); font-weight: 600; }
+  .val-muted  { color: var(--text-secondary); font-weight: 600; }
+
+  /* ── BADGES / TAGS ── */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-blue   { background: var(--blue-glow); color: var(--kova-azure); }
+  .badge-violet { background: var(--cyan-glow); color: var(--kova-cyan); }
+  .badge-cyan   { background: var(--cyan-glow); color: var(--kova-cyan); }
+  .badge-green  { background: var(--positive-glow); color: var(--kova-emerald); }
+  .badge-muted  { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
+
+  /* ── UTILITY ── */
+  .text-blue    { color: var(--kova-azure); }
+  .text-violet  { color: var(--kova-cyan); }
+  .text-cyan    { color: var(--kova-cyan); }
+  .text-green   { color: var(--kova-emerald); }
+  .text-muted   { color: var(--text-muted); }
+  .text-right   { text-align: right; }
+  .mt-1 { margin-top: 8px; }
+  .mt-2 { margin-top: 16px; }
+  .mt-3 { margin-top: 24px; }
+  .mb-1 { margin-bottom: 8px; }
+  .mb-2 { margin-bottom: 16px; }
+  .mb-3 { margin-bottom: 24px; }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── GLOW EFFECTS ── */
+  .glow-blue   { text-shadow: 0 0 10px rgba(14,134,245,0.6); }
+  .glow-cyan   { text-shadow: 0 0 8px rgba(34,211,238,0.6); }
+  .glow-violet { text-shadow: 0 0 8px rgba(34,211,238,0.6); }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    body { background: #131316; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="report-header">
+  <div class="brand-logo">
+    <svg viewBox="0 0 36 36" width="36" height="36">
+  <rect x="0" y="0" width="36" height="36" rx="7" fill="#0D0D14" stroke="rgba(34,211,238,0.10)" stroke-width="1"/>
+  <defs><linearGradient id="kcGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0E86F5"/><stop offset="100%" style="stop-color:#22D3EE"/></linearGradient></defs>
+  <text x="18" y="25" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5" fill="url(#kcGrad)">KC</text>
+</svg>
+    <div>
+      <div class="brand-name">Kova</div>
+      <div class="brand-sub">Commerce</div>
+    </div>
+  </div>
+  <div class="report-meta">
+    <div style="font-weight:600; color:var(--text-primary);">Sheepskin Rug Tracker</div>
+    <div>Hyde & Hare</div>
+    <div>2026-03-23 to 2026-03-26</div>
+  </div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;">
+  <h1>Sheepskin Rug Performance</h1>
+  <p class="section-desc">Daily Google Ads + Shopify tracking for sheepskin and shearling rugs. Updated 26/03/2026, 04:25:44.</p>
+
+  
+  <div class="kpi-row">
+    <div class="kpi-box">
+      <div class="kpi-label">Total Spend</div>
+      <div class="kpi-value">£334.52</div>
+      <div class="kpi-delta">4 days tracked</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Impressions</div>
+      <div class="kpi-value">19,349</div>
+      <div class="kpi-delta">CTR: 0.85%</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Clicks</div>
+      <div class="kpi-value">164</div>
+      <div class="kpi-delta">£2.04 avg CPC</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Google Conversions</div>
+      <div class="kpi-value">2</div>
+      <div class="kpi-delta">Conv Rate: 1.22%</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Google Conv. Value</div>
+      <div class="kpi-value">£248.00</div>
+      <div class="kpi-delta">ROAS: 0.74x</div>
+    </div>
+    <div class="kpi-box">
+      <div class="kpi-label">Shopify Orders</div>
+      <div class="kpi-value">18</div>
+      <div class="kpi-delta">20 units / £2372.00 rev</div>
+    </div>
+  </div>
+
+  <div class="section-label">Google Ads Data</div>
+  
+  <div class="card">
+    <h2>Google Ads -- By Rug Category (Period Total)</h2>
+    <p class="section-desc">Sheepskin rug performance broken down by size. Data from Google Shopping campaigns.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Category</th>
+          <th class="text-right">Impressions</th>
+          <th class="text-right">Clicks</th>
+          <th class="text-right">Cost</th>
+          <th class="text-right">Conversions</th>
+          <th class="text-right">Conv Rate</th>
+          <th class="text-right">CPA</th>
+          <th class="text-right">Conv Value</th>
+          <th class="text-right">AOV</th>
+          <th class="text-right">ROAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0E86F5;margin-right:8px;"></span>Single</td>
+          <td class="text-right">10,518</td>
+          <td class="text-right">82</td>
+          <td class="text-right val-blue">£149.21</td>
+          <td class="text-right">1</td>
+          <td class="text-right">1.22%</td>
+          <td class="text-right">£149.21</td>
+          <td class="text-right val-cyan">£79.00</td>
+          <td class="text-right">£79.00</td>
+          <td class="text-right">0.53x</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#22D3EE;margin-right:8px;"></span>Double</td>
+          <td class="text-right">1,013</td>
+          <td class="text-right">6</td>
+          <td class="text-right val-blue">£16.69</td>
+          <td class="text-right">0</td>
+          <td class="text-right">0.00%</td>
+          <td class="text-right">--</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">--</td>
+          <td class="text-right">0.00x</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#5AABF7;margin-right:8px;"></span>Quad</td>
+          <td class="text-right">950</td>
+          <td class="text-right">8</td>
+          <td class="text-right val-blue">£12.54</td>
+          <td class="text-right">0</td>
+          <td class="text-right">0.00%</td>
+          <td class="text-right">--</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">--</td>
+          <td class="text-right">0.00x</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#67E8F9;margin-right:8px;"></span>Sexto</td>
+          <td class="text-right">4,454</td>
+          <td class="text-right">49</td>
+          <td class="text-right val-blue">£106.05</td>
+          <td class="text-right">0</td>
+          <td class="text-right">0.00%</td>
+          <td class="text-right">--</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">--</td>
+          <td class="text-right">0.00x</td>
+        </tr>
+        <tr>
+          <td><span style="display:inline-block;width:10px;height:10px;border-radius:50%;background:#0B6FCC;margin-right:8px;"></span>Shearling</td>
+          <td class="text-right">2,414</td>
+          <td class="text-right">19</td>
+          <td class="text-right val-blue">£50.03</td>
+          <td class="text-right">1</td>
+          <td class="text-right">5.26%</td>
+          <td class="text-right">£50.03</td>
+          <td class="text-right val-cyan">£169.00</td>
+          <td class="text-right">£169.00</td>
+          <td class="text-right">3.38x</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);font-weight:700;">
+          <td>Total</td>
+          <td class="text-right">19,349</td>
+          <td class="text-right">164</td>
+          <td class="text-right val-blue">£334.52</td>
+          <td class="text-right">2</td>
+          <td class="text-right">1.22%</td>
+          <td class="text-right">£167.26</td>
+          <td class="text-right val-cyan">£248.00</td>
+          <td class="text-right">£124.00</td>
+          <td class="text-right">0.74x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="card">
+    <h2>Google Ads -- Daily Breakdown</h2>
+    <p class="section-desc">Daily performance for all sheepskin/shearling rug products combined, plus per-category detail.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th class="text-right">Impressions</th>
+          <th class="text-right">Clicks</th>
+          <th class="text-right">Cost</th>
+          <th class="text-right">Conversions</th>
+          <th class="text-right">Conv Rate</th>
+          <th class="text-right">CPA</th>
+          <th class="text-right">Conv Value</th>
+          <th class="text-right">ROAS</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Mon 2026-03-23</strong></td>
+          <td class="text-right">7,306</td>
+          <td class="text-right">60</td>
+          <td class="text-right val-blue">£129.79</td>
+          <td class="text-right">1</td>
+          <td class="text-right">1.67%</td>
+          <td class="text-right">£129.79</td>
+          <td class="text-right val-cyan">£79.00</td>
+          <td class="text-right">0.61x</td>
+        </tr>
+        <tr>
+          <td><strong>Tue 2026-03-24</strong></td>
+          <td class="text-right">6,224</td>
+          <td class="text-right">50</td>
+          <td class="text-right val-blue">£102.94</td>
+          <td class="text-right">1</td>
+          <td class="text-right">2.00%</td>
+          <td class="text-right">£102.94</td>
+          <td class="text-right val-cyan">£169.00</td>
+          <td class="text-right">1.64x</td>
+        </tr>
+        <tr>
+          <td><strong>Wed 2026-03-25</strong></td>
+          <td class="text-right">5,708</td>
+          <td class="text-right">53</td>
+          <td class="text-right val-blue">£101.21</td>
+          <td class="text-right">0</td>
+          <td class="text-right">0.00%</td>
+          <td class="text-right">--</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">0.00x</td>
+        </tr>
+        <tr>
+          <td><strong>Thu 2026-03-26</strong></td>
+          <td class="text-right">111</td>
+          <td class="text-right">1</td>
+          <td class="text-right val-blue">£0.58</td>
+          <td class="text-right">0</td>
+          <td class="text-right">0.00%</td>
+          <td class="text-right">--</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">0.00x</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="card">
+    <h2>Google Ads -- Daily by Category</h2>
+    <p class="section-desc">Each rug category broken out by day. Identify which sizes are driving performance.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th class="text-right">Impr</th>
+          <th class="text-right">Clicks</th>
+          <th class="text-right">Cost</th>
+          <th class="text-right">Conv</th>
+          <th class="text-right">Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Mon 2026-03-23</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">4,017</td>
+          <td class="text-right">27</td>
+          <td class="text-right">£44.12</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£79.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">436</td>
+          <td class="text-right">2</td>
+          <td class="text-right">£10.27</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5AABF7;margin-right:6px;"></span>Quad</td>
+          <td class="text-right">334</td>
+          <td class="text-right">4</td>
+          <td class="text-right">£5.52</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#67E8F9;margin-right:6px;"></span>Sexto</td>
+          <td class="text-right">1,553</td>
+          <td class="text-right">19</td>
+          <td class="text-right">£40.59</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">966</td>
+          <td class="text-right">8</td>
+          <td class="text-right">£29.29</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Tue 2026-03-24</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">3,302</td>
+          <td class="text-right">20</td>
+          <td class="text-right">£33.75</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">387</td>
+          <td class="text-right">3</td>
+          <td class="text-right">£5.82</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5AABF7;margin-right:6px;"></span>Quad</td>
+          <td class="text-right">284</td>
+          <td class="text-right">3</td>
+          <td class="text-right">£4.15</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#67E8F9;margin-right:6px;"></span>Sexto</td>
+          <td class="text-right">1,402</td>
+          <td class="text-right">14</td>
+          <td class="text-right">£41.88</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">849</td>
+          <td class="text-right">10</td>
+          <td class="text-right">£17.34</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£169.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Wed 2026-03-25</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">3,145</td>
+          <td class="text-right">34</td>
+          <td class="text-right">£70.76</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">188</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£0.60</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5AABF7;margin-right:6px;"></span>Quad</td>
+          <td class="text-right">329</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£2.87</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#67E8F9;margin-right:6px;"></span>Sexto</td>
+          <td class="text-right">1,450</td>
+          <td class="text-right">16</td>
+          <td class="text-right">£23.58</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">596</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£3.40</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Thu 2026-03-26</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">54</td>
+          <td class="text-right">1</td>
+          <td class="text-right">£0.58</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">2</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#5AABF7;margin-right:6px;"></span>Quad</td>
+          <td class="text-right">3</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#67E8F9;margin-right:6px;"></span>Sexto</td>
+          <td class="text-right">49</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">3</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+          <td class="text-right">0</td>
+          <td class="text-right">£0.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-label">Charts</div>
+  
+  <div class="card">
+    <h2>Trends -- Clicks &amp; Conversions</h2>
+    <p class="section-desc">Daily sheepskin rug clicks and conversions from Google Ads, with conversion rate overlay.</p>
+    <canvas id="clicksConvChart" height="300"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Trends -- Spend &amp; ROAS</h2>
+    <p class="section-desc">Daily ad spend vs ROAS for all sheepskin rug products.</p>
+    <canvas id="spendRoasChart" height="300"></canvas>
+  </div>
+
+  <div class="card">
+    <h2>Trends -- Clicks by Category</h2>
+    <p class="section-desc">Which rug sizes are getting the most traffic each day.</p>
+    <canvas id="catClicksChart" height="300"></canvas>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+  <script>
+    const labels = ["Mon 03-23","Tue 03-24","Wed 03-25","Thu 03-26"];
+    const dailyClicks = [60,50,53,1];
+    const dailyConv = [1,1,0,0];
+    const dailyCost = [129.79,102.94,101.21,0.58];
+    const dailyValue = [79,169,0,0];
+    const dailyConvRate = [1.67,2,0,0];
+    const dailyROAS = [0.61,1.64,0,0];
+
+    const catData = {"Single":[27,20,34,1],"Double":[2,3,1,0],"Quad":[4,3,1,0],"Sexto":[19,14,16,0],"Shearling":[8,10,1,0]};
+    const catColorsMap = {"Single":"#0E86F5","Double":"#22D3EE","Quad":"#5AABF7","Sexto":"#67E8F9","Shearling":"#0B6FCC"};
+
+    // Chart 1: Clicks + Conversions + Conv Rate
+    new Chart(document.getElementById('clicksConvChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Clicks',
+            data: dailyClicks,
+            backgroundColor: '#0E86F588',
+            borderColor: '#0E86F5',
+            borderWidth: 1,
+            yAxisID: 'y',
+            order: 2,
+          },
+          {
+            label: 'Conversions',
+            data: dailyConv,
+            backgroundColor: '#22D3EE88',
+            borderColor: '#22D3EE',
+            borderWidth: 1,
+            yAxisID: 'y',
+            order: 2,
+          },
+          {
+            label: 'Conv Rate %',
+            data: dailyConvRate,
+            type: 'line',
+            borderColor: '#34D399',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: '#34D399',
+            yAxisID: 'y1',
+            order: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: '#888' } } },
+        scales: {
+          x: { ticks: { color: '#888' }, grid: { color: '#262630' } },
+          y: { position: 'left', ticks: { color: '#888' }, grid: { color: '#262630' }, title: { display: true, text: 'Count', color: '#888' } },
+          y1: { position: 'right', ticks: { color: '#34D399' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'Conv Rate %', color: '#34D399' }, min: 0 },
+        },
+      },
+    });
+
+    // Chart 2: Spend + ROAS
+    new Chart(document.getElementById('spendRoasChart'), {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: 'Spend (GBP)',
+            data: dailyCost,
+            backgroundColor: '#0E86F588',
+            borderColor: '#0E86F5',
+            borderWidth: 1,
+            yAxisID: 'y',
+            order: 2,
+          },
+          {
+            label: 'ROAS',
+            data: dailyROAS,
+            type: 'line',
+            borderColor: '#22D3EE',
+            backgroundColor: 'transparent',
+            borderWidth: 2,
+            pointRadius: 4,
+            pointBackgroundColor: '#22D3EE',
+            yAxisID: 'y1',
+            order: 1,
+          },
+        ],
+      },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: '#888' } } },
+        scales: {
+          x: { ticks: { color: '#888' }, grid: { color: '#262630' } },
+          y: { position: 'left', ticks: { color: '#888' }, grid: { color: '#262630' }, title: { display: true, text: 'Spend (GBP)', color: '#888' } },
+          y1: { position: 'right', ticks: { color: '#22D3EE' }, grid: { drawOnChartArea: false }, title: { display: true, text: 'ROAS', color: '#22D3EE' }, min: 0 },
+        },
+      },
+    });
+
+    // Chart 3: Clicks by category (stacked)
+    const catDatasets = Object.entries(catData).map(([cat, data]) => ({
+      label: cat,
+      data,
+      backgroundColor: catColorsMap[cat] + '99',
+      borderColor: catColorsMap[cat],
+      borderWidth: 1,
+    }));
+
+    new Chart(document.getElementById('catClicksChart'), {
+      type: 'bar',
+      data: { labels, datasets: catDatasets },
+      options: {
+        responsive: true,
+        plugins: { legend: { labels: { color: '#888' } } },
+        scales: {
+          x: { stacked: true, ticks: { color: '#888' }, grid: { color: '#262630' } },
+          y: { stacked: true, ticks: { color: '#888' }, grid: { color: '#262630' }, title: { display: true, text: 'Clicks', color: '#888' } },
+        },
+      },
+    });
+  </script>
+
+  <div class="section-label">Shopify Validation</div>
+  
+  <div class="card">
+    <h2>Shopify Sales -- Sheepskin Rugs</h2>
+    <p class="section-desc">Actual Shopify orders containing sheepskin/shearling rug products. Compare against Google Ads reported conversions to validate attribution.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Category</th>
+          <th class="text-right">Orders</th>
+          <th class="text-right">Units</th>
+          <th class="text-right">Revenue</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Mon 2026-03-23</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">3</td>
+          <td class="text-right">3</td>
+          <td class="text-right val-cyan">£237.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">2</td>
+          <td class="text-right">2</td>
+          <td class="text-right val-cyan">£318.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Tue 2026-03-24</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">2</td>
+          <td class="text-right">3</td>
+          <td class="text-right val-cyan">£289.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">4</td>
+          <td class="text-right">5</td>
+          <td class="text-right val-cyan">£655.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);">
+          <td><strong>Wed 2026-03-25</strong></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">3</td>
+          <td class="text-right">3</td>
+          <td class="text-right val-cyan">£237.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">4</td>
+          <td class="text-right">4</td>
+          <td class="text-right val-cyan">£636.00</td>
+        </tr>
+        <tr style="border-top:2px solid var(--divider);font-weight:700;">
+          <td colspan="2">Total</td>
+          <td class="text-right">18</td>
+          <td class="text-right">20</td>
+          <td class="text-right val-cyan">£2372.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0E86F5;margin-right:6px;"></span>Single</td>
+          <td class="text-right">8</td>
+          <td class="text-right">9</td>
+          <td class="text-right">£763.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#22D3EE;margin-right:6px;"></span>Double</td>
+          <td class="text-right">6</td>
+          <td class="text-right">6</td>
+          <td class="text-right">£954.00</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td><span style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#0B6FCC;margin-right:6px;"></span>Shearling</td>
+          <td class="text-right">4</td>
+          <td class="text-right">5</td>
+          <td class="text-right">£655.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="card">
+    <h2>Shopify -- Daily Sheepskin Revenue</h2>
+    <p class="section-desc">Total sheepskin/shearling rug revenue from Shopify by day.</p>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th class="text-right">Orders</th>
+          <th class="text-right">Units</th>
+          <th class="text-right">Revenue</th>
+          <th class="text-right">Avg Order Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Mon 2026-03-23</strong></td>
+          <td class="text-right">5</td>
+          <td class="text-right">5</td>
+          <td class="text-right val-cyan">£555.00</td>
+          <td class="text-right">£111.00</td>
+        </tr>
+        <tr>
+          <td><strong>Tue 2026-03-24</strong></td>
+          <td class="text-right">6</td>
+          <td class="text-right">6</td>
+          <td class="text-right val-cyan">£944.00</td>
+          <td class="text-right">£157.33</td>
+        </tr>
+        <tr>
+          <td><strong>Wed 2026-03-25</strong></td>
+          <td class="text-right">7</td>
+          <td class="text-right">7</td>
+          <td class="text-right val-cyan">£873.00</td>
+          <td class="text-right">£124.71</td>
+        </tr>
+        <tr>
+          <td><strong>Thu 2026-03-26</strong></td>
+          <td class="text-right">0</td>
+          <td class="text-right">0</td>
+          <td class="text-right val-cyan">£0.00</td>
+          <td class="text-right">--</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card" style="background:transparent;border:1px dashed var(--card-border);padding:16px;">
+    <h3>Notes</h3>
+    <ul style="font-size:0.82rem;color:var(--text-secondary);line-height:1.8;padding-left:20px;">
+      <li>Google Ads product type data was updated on 25 Mar 2026. Product categorisation uses title matching for all dates.</li>
+      <li>Categories: Single (1 skin), Double (2 skins), Quad/Large (4 skins), Sexto/Giant (6 skins), Shearling (any size, shorter wool).</li>
+      <li>Tibetan and Rarebreed sheepskin rugs are included in their size-equivalent category.</li>
+      <li>Shopify data shows actual orders. Google Ads conversions may include different attribution windows.</li>
+      <li>Report auto-generated. Run <code>node generate-sheepskin-report.cjs</code> to refresh.</li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="report-footer">
+  <span>Kova Commerce</span>
+  <span>kovacommerce.ai</span>
+  <span>Confidential</span>
+</div>
+</body>
+</html>
