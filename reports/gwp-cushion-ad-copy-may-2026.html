@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hyde & Hare — GWP Sheepskin Cushion Ad Copy</title>
+  <style>
+  @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+  :root {
+    --obsidian-black:   #131316;
+    --kova-azure:       #0E86F5;
+    --kova-cyan:        #22D3EE;
+    --kova-emerald:     #34D399;
+    --royal-blue:       #0E86F5;
+    --vivid-violet:     #22D3EE;
+    --neon-lime:        #34D399;
+    --card-bg:          #1A1A1F;
+    --card-border:      #262630;
+    --text-primary:     #EAEAEA;
+    --text-secondary:   #888888;
+    --text-muted:       #555555;
+    --divider:          #2A2A30;
+    --positive-glow:    rgba(52,211,153,0.15);
+    --blue-glow:        rgba(14,134,245,0.25);
+    --cyan-glow:        rgba(34,211,238,0.18);
+    --violet-glow:      rgba(34,211,238,0.18);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    background: var(--obsidian-black);
+    color: var(--text-primary);
+    line-height: 1.6;
+    padding: 40px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HEADER BAR ── */
+  .report-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px;
+    margin-bottom: 32px;
+    border-bottom: 1px solid var(--divider);
+  }
+  .report-header .brand-logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .report-header .brand-name {
+    font-weight: 800;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-primary);
+  }
+  .report-header .brand-sub {
+    font-weight: 500;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+  }
+  .report-header .report-meta {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+  }
+
+  /* ── SECTION TITLES ── */
+  h1, h2, h3 {
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--text-primary);
+  }
+  h1 {
+    font-size: 2.4rem;
+    font-weight: 800;
+    margin-bottom: 6px;
+    line-height: 1.15;
+  }
+  h2 {
+    font-size: 1.15rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--kova-azure);
+    display: inline-block;
+  }
+  h3 {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    letter-spacing: 0.18em;
+  }
+
+  /* ── HEADLINE + DESCRIPTION PAIRING ── */
+  .section-desc {
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 24px;
+    text-transform: none;
+    letter-spacing: normal;
+    max-width: 640px;
+  }
+  h1 + .section-desc { margin-top: 4px; }
+  h2 + .section-desc { margin-top: -8px; }
+
+  /* ── SECTION LABELS (small category markers) ── */
+  .section-label {
+    font-size: 0.6rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--kova-cyan);
+    margin-bottom: 12px;
+    margin-top: 40px;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 24px;
+    margin-bottom: 32px;
+  }
+
+  /* ── KPI ROW ── */
+  .kpi-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px;
+    margin-bottom: 32px;
+  }
+  .kpi-box {
+    background: var(--card-bg);
+    border: 1px solid var(--card-border);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+  }
+  .kpi-box .kpi-label {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-secondary);
+    margin-bottom: 6px;
+  }
+  .kpi-box .kpi-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--kova-azure);
+  }
+  .kpi-box .kpi-delta {
+    font-size: 0.75rem;
+    margin-top: 4px;
+  }
+  .kpi-delta.positive { color: var(--kova-emerald); }
+  .kpi-delta.negative { color: var(--text-secondary); }
+
+  /* ── TABLES ── */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.85rem;
+  }
+  thead th {
+    text-align: left;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-secondary);
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--divider);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--card-border);
+    color: var(--text-primary);
+  }
+  tbody tr:hover { background: rgba(255,255,255,0.02); }
+
+  /* Accent values in tables */
+  .val-blue   { color: var(--kova-azure); font-weight: 600; }
+  .val-violet { color: var(--kova-cyan); font-weight: 600; }
+  .val-cyan   { color: var(--kova-cyan); font-weight: 600; }
+  .val-green  { color: var(--kova-emerald); font-weight: 600; }
+  .val-muted  { color: var(--text-secondary); font-weight: 600; }
+
+  /* ── BADGES / TAGS ── */
+  .badge {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .badge-blue   { background: var(--blue-glow); color: var(--kova-azure); }
+  .badge-violet { background: var(--cyan-glow); color: var(--kova-cyan); }
+  .badge-cyan   { background: var(--cyan-glow); color: var(--kova-cyan); }
+  .badge-green  { background: var(--positive-glow); color: var(--kova-emerald); }
+  .badge-muted  { background: rgba(255,255,255,0.05); color: var(--text-secondary); }
+
+  /* ── UTILITY ── */
+  .text-blue    { color: var(--kova-azure); }
+  .text-violet  { color: var(--kova-cyan); }
+  .text-cyan    { color: var(--kova-cyan); }
+  .text-green   { color: var(--kova-emerald); }
+  .text-muted   { color: var(--text-muted); }
+  .text-right   { text-align: right; }
+  .mt-1 { margin-top: 8px; }
+  .mt-2 { margin-top: 16px; }
+  .mt-3 { margin-top: 24px; }
+  .mb-1 { margin-bottom: 8px; }
+  .mb-2 { margin-bottom: 16px; }
+  .mb-3 { margin-bottom: 24px; }
+
+  /* ── FOOTER ── */
+  .report-footer {
+    margin-top: 48px;
+    padding-top: 16px;
+    border-top: 1px solid var(--divider);
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── GLOW EFFECTS ── */
+  .glow-blue   { text-shadow: 0 0 10px rgba(14,134,245,0.6); }
+  .glow-cyan   { text-shadow: 0 0 8px rgba(34,211,238,0.6); }
+  .glow-violet { text-shadow: 0 0 8px rgba(34,211,238,0.6); }
+
+  /* ── PRINT / PDF ── */
+  @media print {
+    body { background: #131316; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .card { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+
+<div class="report-header">
+  <div class="brand-logo">
+    <svg viewBox="0 0 36 36" width="36" height="36">
+  <rect x="0" y="0" width="36" height="36" rx="7" fill="#0D0D14" stroke="rgba(34,211,238,0.10)" stroke-width="1"/>
+  <defs><linearGradient id="kcGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0E86F5"/><stop offset="100%" style="stop-color:#22D3EE"/></linearGradient></defs>
+  <text x="18" y="25" text-anchor="middle" font-family="Montserrat, sans-serif" font-weight="900" font-size="16" letter-spacing="-0.5" fill="url(#kcGrad)">KC</text>
+</svg>
+    <div>
+      <div class="brand-name">Kova</div>
+      <div class="brand-sub">Commerce</div>
+    </div>
+  </div>
+  <div class="report-meta">
+    <div style="font-weight:600; color:var(--text-primary);">GWP Sheepskin Cushion — Ad Copy</div>
+    <div>Hyde & Hare</div>
+    <div>May 14, 2026</div>
+  </div>
+</div>
+
+<section style="margin-bottom: 40px;">
+  <h1>GWP Sheepskin Cushion</h1>
+  <p class="section-desc">Free sheepskin cushion on orders £150+. Twelve primary copy versions and twelve headlines, anchored to copy patterns that won across your Meta account over the last 60 days (March 15 – May 14, 2026).</p>
+
+  <div class="kpi-row" style="margin-top: 28px;">
+    <div class="kpi-box"><div class="kpi-label">60d Spend</div><div class="kpi-value">£14.2k</div><div class="kpi-delta positive">ROAS 5.90</div></div>
+    <div class="kpi-box"><div class="kpi-label">Significant Ads</div><div class="kpi-value">42</div><div class="kpi-delta">>=£50 spend</div></div>
+    <div class="kpi-box"><div class="kpi-label">Acct AOV</div><div class="kpi-value">£179</div><div class="kpi-delta">469 purchases</div></div>
+    <div class="kpi-box"><div class="kpi-label">Seat Pad GWP</div><div class="kpi-value">ROAS 6.90</div><div class="kpi-delta positive">closest analog</div></div>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>What worked in primary copy</h2>
+  <p class="section-desc">Five patterns repeat across statistically meaningful winners.</p>
+  <div class="card">
+    <ol style="padding-left: 20px; line-height: 1.9;">
+      <li><strong style="color: var(--kova-azure);">Question hook + bullet/list body.</strong> Ad 215 (seat pad, ROAS 8.33) and Ad 63 (rugs, ROAS 5.46) both lead with a question and use a vertical list of scenarios. List format is the most repeatable winning structure.</li>
+      <li><strong style="color: var(--kova-azure);">Short-sentence sensory close.</strong> "Beautifully padded. Impossibly soft." (Ad 210, ROAS 8.29) and "Softness you notice. Warmth you feel." (Ad 205, ROAS 10.65). Three short fragments beat one full sentence.</li>
+      <li><strong style="color: var(--kova-azure);">5-star review embed.</strong> Ads 191, 172, 205 all carry review quotes with star markers. Lifts conversion across cold and warm.</li>
+      <li><strong style="color: var(--kova-azure);">Origin / craft anchor.</strong> "Real New Zealand sheepskin, handcrafted in England" / "Tanned in small sustainable batches" / "Arctic regions of Scandinavia." Always present in winners.</li>
+      <li><strong style="color: var(--kova-azure);">Value carried in the headline.</strong> Ad 1 used "Free Worldwide Delivery" as the headline and hit ROAS 9.54. The headline is doing real work, not just the body.</li>
+    </ol>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>Top 10 Winners (Last 60 Days)</h2>
+  <p class="section-desc">Account-wide performance among ads with meaningful spend, ordered by ROAS.</p>
+  <div class="card" style="padding: 0;">
+    <table>
+      <thead>
+        <tr>
+          <th>Ad</th><th>Concept</th><th>ROAS</th><th>Spend</th><th>CPA</th><th>CTR</th><th>Copy Pattern</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Ad 205</td>
+          <td>Sheepskin Rugs Benefits</td>
+          <td class="val-blue">10.65</td>
+          <td>£239</td>
+          <td>£29.87</td>
+          <td>2.51%</td>
+          <td class="val-muted">List + review + sensory close</td>
+        </tr>
+<tr>
+          <td>Ad 1</td>
+          <td>UGC + Free Delivery</td>
+          <td class="val-blue">9.54</td>
+          <td>£605</td>
+          <td>£20.85</td>
+          <td>2.21%</td>
+          <td class="val-muted">Short claim + craft anchor + offer in headline</td>
+        </tr>
+<tr>
+          <td>Ad 127</td>
+          <td>Shearling Bean Bag</td>
+          <td class="val-blue">9.30</td>
+          <td>£322</td>
+          <td>£26.84</td>
+          <td>1.81%</td>
+          <td class="val-muted">Product launch + craft detail</td>
+        </tr>
+<tr>
+          <td>Ad 215</td>
+          <td>Seat Pads Dining</td>
+          <td class="val-blue">8.33</td>
+          <td>£745</td>
+          <td>£26.60</td>
+          <td>2.79%</td>
+          <td class="val-muted">Question hook + bullet list</td>
+        </tr>
+<tr>
+          <td>Ad 210</td>
+          <td>Seat Pads Launch</td>
+          <td class="val-blue">8.29</td>
+          <td>£1,788</td>
+          <td>£19.22</td>
+          <td>3.23%</td>
+          <td class="val-muted">Details hook + sensory close</td>
+        </tr>
+<tr>
+          <td>Ad 103</td>
+          <td>UGC Candance</td>
+          <td class="val-blue">6.51</td>
+          <td>£648</td>
+          <td>£27.02</td>
+          <td>1.28%</td>
+          <td class="val-muted">Scandi/hygge framing</td>
+        </tr>
+<tr>
+          <td>Ad 53</td>
+          <td>DPA + Hygge Copy</td>
+          <td class="val-blue">6.03</td>
+          <td>£514</td>
+          <td>£19.76</td>
+          <td>2.01%</td>
+          <td class="val-muted">Brand pull + product feed</td>
+        </tr>
+<tr>
+          <td>Ad 220</td>
+          <td>Cream Bestseller</td>
+          <td class="val-blue">5.91</td>
+          <td>£296</td>
+          <td>£26.87</td>
+          <td>2.39%</td>
+          <td class="val-muted">Scarcity + craft anchor</td>
+        </tr>
+<tr>
+          <td>Ad 63</td>
+          <td>Ways to Style Rugs</td>
+          <td class="val-blue">5.46</td>
+          <td>£1,987</td>
+          <td>£33.69</td>
+          <td>1.38%</td>
+          <td class="val-muted">Numbered list of use-cases</td>
+        </tr>
+<tr>
+          <td>Ad 191</td>
+          <td>White Company Compare</td>
+          <td class="val-blue">5.30</td>
+          <td>£205</td>
+          <td>£41.04</td>
+          <td>2.01%</td>
+          <td class="val-muted">Season of Soft + review</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>Seat Pad GWP Learnings</h2>
+  <p class="section-desc">Same £150 threshold, same audience, same lookalike sheepskin product. The closest analog we have. Two formulas dominated.</p>
+  <div class="card">
+    <p><strong>Ad 210</strong> (£2.8k total spend, ROAS 4-8): "Ever noticed how the smallest details tie a whole room together?" + product description + "Beautifully padded. Impossibly soft."</p>
+    <p style="margin-top: 16px;"><strong>Ad 215</strong> (£1.1k total spend, ROAS 5-8): "Where do you find your quiet moments at home?" + bulleted list + "Sheepskin seat pads bring natural softness to any of them."</p>
+    <p style="margin-top: 16px; color: var(--kova-cyan); font-weight: 500;">Key observation: Both winning seat pad ads sold the product, not the GWP offer. The £150+ sat in landing page / cart messaging, not ad copy. We should test both directions for cushions.</p>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>12 Primary Copy Versions</h2>
+  <p class="section-desc">Each version pairs a tested winning formula with the cushion GWP. Source ads noted for traceability. No em dashes.</p>
+
+  
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V1 &middot; Question hook + bullet list</h3>
+      <span class="badge badge-cyan">Ad 215 winner (ROAS 8.33)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>Where do you reach for softness at home?</p><p>• Across the back of a reading chair</p><p>• Layered on the bed for an afternoon nap</p><p>• On the sofa when the evenings turn</p><p>• Tucked into the corner of a window seat</p><p class="blank"></p><p>Sheepskin cushions bring natural warmth to all of them. Made from real New Zealand sheepskin, handcrafted in England.</p><p class="blank"></p><p>Free sheepskin cushion on orders over £150.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Free Sheepskin Cushion. Order Over £150.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V2 &middot; Smallest-details hook</h3>
+      <span class="badge badge-cyan">Ad 210 winner (ROAS 8.29)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>Ever noticed how the smallest details tie a whole room together?</p><p class="blank"></p><p>Our sheepskin cushions add texture, warmth and a quiet sense of calm to any chair, sofa or bed. The kind of finishing touch that makes everything feel considered.</p><p class="blank"></p><p>Beautifully soft. Impossibly tactile. Naturally luxurious.</p><p class="blank"></p><p>Spend £150 and we&#39;ll add one to your order, on us.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">The Finishing Touch, On Us.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V3 &middot; Offer-led, sensory close</h3>
+      <span class="badge badge-cyan">New angle, sensory pattern from Ad 205</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>A free sheepskin cushion on every order over £150.</p><p class="blank"></p><p>Real New Zealand sheepskin. Handcrafted in England. The kind of soft you feel before you sit down.</p><p class="blank"></p><p>The detail your sofa has been waiting for.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Real Sheepskin. Free With £150.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V4 &middot; Review embed</h3>
+      <span class="badge badge-cyan">Ad 191 winner (ROAS 5.30)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>&quot;A rival to The White Company.&quot; ⭐⭐⭐⭐⭐</p><p class="blank"></p><p>Our sheepskin cushions bring natural warmth, texture and that unmistakable feeling of hygge to any room. Beautifully soft. Quietly luxurious.</p><p class="blank"></p><p>Yours free on orders over £150.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Yours Free On Orders Over £150</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V5 &middot; Hygge / Season of Soft</h3>
+      <span class="badge badge-cyan">Ad 172 winner (ROAS 4.92)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>The Season of Soft is here.</p><p class="blank"></p><p>Natural fibres, warm textures and the kind of comfort that lingers from morning coffee to evening unwind. Our sheepskin cushions are the soft layer your sofa, bed and reading chair have been missing.</p><p class="blank"></p><p>Free with every order over £150. While stocks last.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">A Free Cushion. While Stocks Last.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V6 &middot; Scarcity / craft anchor</h3>
+      <span class="badge badge-cyan">Ad 220 winner (ROAS 5.91)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>Our sheepskin cushions sell out faster than anything we make.</p><p class="blank"></p><p>Tanned in small sustainable batches. Handcrafted in England. The kind of piece you notice the second you walk into a room.</p><p class="blank"></p><p>Yours free on every order over £150. No code needed.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Our Most-Loved Cushion. Now Free.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V7 &middot; Stack-the-room (cross-sell)</h3>
+      <span class="badge badge-cyan">New angle, leverages full collection</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>A sheepskin rug at the foot of the bed.</p><p>A seat pad on every dining chair.</p><p>A sheepskin cushion on the reading chair in the corner.</p><p class="blank"></p><p>That&#39;s a home that feels lived in. Calm. Yours.</p><p class="blank"></p><p>Add £150 to your cart and we&#39;ll throw in the cushion. On us.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">The Detail Your Sofa Has Been Missing</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V8 &middot; Direct offer + savings framing</h3>
+      <span class="badge badge-cyan">Offer-led, craft anchor</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>Order over £150 and the sheepskin cushion is on us.</p><p class="blank"></p><p>A piece of natural softness that pulls a sofa together, finishes a bed, or quietly transforms a reading chair. Real New Zealand sheepskin. Handcrafted in England.</p><p class="blank"></p><p>The kind of detail you keep for years.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">A Free Cushion With Every £150 Order</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V9 &middot; Short + punchy</h3>
+      <span class="badge badge-cyan">Ad 1 winner (ROAS 9.54)</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>The softest sheepskin cushions in the world.</p><p class="blank"></p><p>Real sheepskin. Handcrafted in England. Free on orders over £150.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">The Softest Sheepskin Cushion. On Us.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V10 &middot; Editorial / styling-led</h3>
+      <span class="badge badge-cyan">New angle, editorial tone</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>A sheepskin cushion isn&#39;t a finishing touch. It&#39;s the touch.</p><p class="blank"></p><p>Soft enough to nap on. Textured enough to anchor a sofa. Warm enough to keep year-round. The piece that quietly turns a room into a space you want to stay in.</p><p class="blank"></p><p>Free with every order over £150 this month.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Sheepskin Cushion. Free Over £150.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V11 &middot; Sensory three-line open</h3>
+      <span class="badge badge-cyan">Ad 205 close pattern</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>Soft. Natural. Quietly transformative.</p><p class="blank"></p><p>Our sheepskin cushions bring real warmth and texture to any room in the house. From bed to sofa to the chair you always end up in.</p><p class="blank"></p><p>Yours free on orders over £150. While stocks last.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Naturally Soft. Naturally Free.</div>
+  </div>
+  
+
+  <div class="card" style="margin-bottom: 20px;">
+    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 12px; gap: 16px; flex-wrap: wrap;">
+      <h3 style="color: var(--kova-azure); letter-spacing: 0.1em; margin-bottom: 0;">V12 &middot; Customer review opener</h3>
+      <span class="badge badge-cyan">Ad 191/172/205 review pattern</span>
+    </div>
+    <div style="background: rgba(255,255,255,0.02); border-left: 3px solid var(--kova-azure); padding: 16px 20px; margin-bottom: 12px; line-height: 1.7;">
+      <p>&quot;It feels like a cloud. I keep moving it from room to room.&quot; ⭐⭐⭐⭐⭐</p><p class="blank"></p><p>That&#39;s what our sheepskin cushions do. Real New Zealand sheepskin. Handcrafted in England. The kind of soft you feel for years.</p><p class="blank"></p><p>Free with every order over £150.</p>
+    </div>
+    <div style="font-size: 0.78rem; color: var(--text-secondary); text-transform: uppercase; letter-spacing: 0.12em; margin-top: 16px;">Paired Headline</div>
+    <div style="font-size: 1.05rem; font-weight: 600; color: var(--kova-cyan); margin-top: 4px;">Free Cushion Inside.</div>
+  </div>
+  
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>12 Headlines (Mix &amp; Match)</h2>
+  <p class="section-desc">Use any headline with any primary copy. Pair offer-led headlines with product-led bodies (and vice versa) to find the right balance.</p>
+  <div class="card">
+    <ol style="padding-left: 24px; line-height: 2;">
+      <li>Free Sheepskin Cushion. Order Over £150.</li>
+<li>Yours Free On Orders Over £150</li>
+<li>The Softest Sheepskin Cushion. On Us.</li>
+<li>A Free Cushion With Every £150 Order</li>
+<li>Free Cushion Inside.</li>
+<li>The Detail Your Sofa Has Been Missing</li>
+<li>Our Most-Loved Cushion. Now Free.</li>
+<li>Sheepskin Cushion. Free Over £150.</li>
+<li>The Finishing Touch, On Us.</li>
+<li>Real Sheepskin. Free With £150.</li>
+<li>A Free Cushion. While Stocks Last.</li>
+<li>Naturally Soft. Naturally Free.</li>
+    </ol>
+  </div>
+
+  <h3 style="margin-top: 28px;">Product-Led Alternates</h3>
+  <p class="section-desc">For testing primary copy that doesn't lead with the offer.</p>
+  <div class="card">
+    <ul style="padding-left: 24px; line-height: 2; list-style-type: none;">
+      <li>&middot; The Home Of Hygge</li>
+<li>&middot; Beautifully Soft. Impossibly Tactile.</li>
+<li>&middot; Sheepskin Cushions, Handcrafted In England</li>
+<li>&middot; The Sofa Layer Everyone&#39;s Asking About</li>
+    </ul>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>Recommended A/B Test Structure</h2>
+  <p class="section-desc">Three ad sets, ~£40-50/day each for 14 days. Need ~£600-800 per set for confidence at current £25-30 CPA.</p>
+  <div class="card">
+    <table>
+      <thead>
+        <tr><th>Cell</th><th>Angle</th><th>Primary Copy</th><th>Headlines</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="val-blue">A</td><td>Offer-led</td><td>V3, V6, V9</td><td>1, 5, 10</td></tr>
+        <tr><td class="val-blue">B</td><td>Product-led</td><td>V1, V2, V10</td><td>6, 9, "Home Of Hygge"</td></tr>
+        <tr><td class="val-blue">C</td><td>Review-led</td><td>V4, V12</td><td>3, 7</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 16px; color: var(--text-secondary); font-size: 0.85rem;">Round 2: take the top angle and swap headlines underneath the same primary text to isolate headline efficiency.</p>
+  </div>
+</section>
+
+<section style="margin-bottom: 48px;">
+  <h2>Notes &amp; Guardrails</h2>
+  <div class="card">
+    <ul style="padding-left: 24px; line-height: 1.9;">
+      <li>No em dashes in any version. Consistent with brand voice rule.</li>
+      <li>£150 threshold is disclosed in every offer-led version (Meta policy requires this).</li>
+      <li>Consider "Free worldwide delivery" tag on remarketing variants. That anchor lifted Ad 1 to ROAS 9.54.</li>
+      <li>Ad naming convention: <code style="color: var(--kova-cyan); background: rgba(34,211,238,0.08); padding: 2px 6px; border-radius: 4px;">Ad 225 | Video | Sheepskin Cushion GWP | Question Hook + Bullets | Product Lifestyle | GWP £150 | OG</code></li>
+    </ul>
+  </div>
+</section>
+
+
+<div class="report-footer">
+  <span>Kova Commerce</span>
+  <span>kovacommerce.ai</span>
+  <span>Confidential</span>
+</div>
+
+</body>
+</html>
