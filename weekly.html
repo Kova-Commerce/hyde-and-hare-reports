@@ -288,6 +288,16 @@
   .yoy-better { color:#34D399; }
   .yoy-worse { color:#888; }
   .tracking-notice { padding:16px; text-align:center; color:var(--text-muted); font-size:0.8rem; border:1px dashed var(--card-border); border-radius:8px; }
+  .src-tag { display:inline-flex; align-items:center; gap:5px; font-size:0.6rem; font-weight:600; text-transform:uppercase; letter-spacing:0.06em; padding:3px 9px 3px 6px; border-radius:4px; vertical-align:middle; margin-left:4px; white-space:nowrap; }
+  .src-tag img { border-radius:2px; }
+  .src-tag-shopify { background:rgba(150,191,72,0.12); color:#96BF48; }
+  .src-tag-tw { background:rgba(168,85,247,0.12); color:#A855F7; }
+  .src-tag-meta { background:rgba(24,119,242,0.12); color:#5AABF7; }
+  .src-tag-google { background:rgba(66,133,244,0.12); color:#4285F4; }
+  .src-tag-klaviyo { background:rgba(52,211,153,0.12); color:#34D399; }
+  .src-icon-only { vertical-align:-2px; border-radius:2px; margin:0 2px; }
+  .src-legend { display:flex; flex-wrap:wrap; gap:10px; padding:10px 14px; border:1px solid var(--card-border); border-radius:6px; margin-bottom:20px; font-size:0.65rem; color:var(--text-secondary); }
+  .src-legend-item { display:inline-flex; align-items:center; gap:4px; }
 </style><script>
 function sortTable(tableId, sortBy) {
   var data = window[tableId + '_data'];
@@ -333,20 +343,20 @@ function sortTable(tableId, sortBy) {
     <div>Hyde & Hare</div>
     <div>23 Mar 2026 - 29 Mar 2026</div>
   </div>
-</div><p class="section-desc" style="margin-bottom:8px;">23 Mar 2026 - 29 Mar 2026 vs 16 Mar 2026 - 22 Mar 2026</p><div class="section-label">Overview</div><h1>Hyde &amp; Hare</h1><p class="section-desc">Weekly performance snapshot across all channels.</p><div class="kpi-row"><div class="kpi-box">
-    <div class="kpi-label">Revenue</div>
+</div><p class="section-desc" style="margin-bottom:8px;">23 Mar 2026 - 29 Mar 2026 vs 16 Mar 2026 - 22 Mar 2026</p><div class="src-legend"><span style="color:var(--text-muted);font-weight:600;">DATA SOURCES:</span><span class="src-legend-item"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="12" height="12" alt="Shopify" style="border-radius:2px;"> Shopify</span><span class="src-legend-item"><img src="https://www.google.com/s2/favicons?domain=triplewhale.com&sz=32" width="12" height="12" alt="Triple Whale" style="border-radius:2px;"> Triple Whale</span><span class="src-legend-item"><img src="https://www.google.com/s2/favicons?domain=meta.com&sz=32" width="12" height="12" alt="Meta" style="border-radius:2px;"> Meta</span><span class="src-legend-item"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="12" height="12" alt="Google" style="border-radius:2px;"> Google</span><span class="src-legend-item"><img src="https://www.google.com/s2/favicons?domain=klaviyo.com&sz=32" width="12" height="12" alt="Klaviyo" style="border-radius:2px;"> Klaviyo</span></div><div class="section-label">Overview</div><h1>Hyde &amp; Hare</h1><p class="section-desc">Weekly performance snapshot across all channels.</p><div class="kpi-row"><div class="kpi-box">
+    <div class="kpi-label"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="13" height="13" alt="Shopify" class="src-icon-only" title="Shopify"> Revenue</div>
     <div class="kpi-value">£30,851</div>
     <div class="kpi-delta positive">+68.9% vs prev</div>
   </div><div class="kpi-box">
-    <div class="kpi-label">Orders</div>
+    <div class="kpi-label"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="13" height="13" alt="Shopify" class="src-icon-only" title="Shopify"> Orders</div>
     <div class="kpi-value">159</div>
     <div class="kpi-delta positive">+50.0% vs prev</div>
   </div><div class="kpi-box">
-    <div class="kpi-label">AOV</div>
+    <div class="kpi-label"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="13" height="13" alt="Shopify" class="src-icon-only" title="Shopify"> AOV</div>
     <div class="kpi-value">£194.03</div>
     <div class="kpi-delta positive">+12.6% vs prev</div>
   </div><div class="kpi-box">
-    <div class="kpi-label">New Customers</div>
+    <div class="kpi-label"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="13" height="13" alt="Shopify" class="src-icon-only" title="Shopify"> New Customers</div>
     <div class="kpi-value">103</div>
     <div class="kpi-delta positive">+74.6% vs prev</div>
   </div><div class="kpi-box">
@@ -739,7 +749,7 @@ function sortTable(tableId, sortBy) {
         <tr><td><span class="badge badge-violet">Returning</span></td><td class="text-right">56</td><td class="text-right"><span class="positive">+19.1%</span></td></tr>
         <tr style="font-weight:700; border-top:2px solid var(--divider);"><td>Total</td><td class="text-right">159</td><td class="text-right"><span class="positive">+50.0%</span></td></tr>
       </tbody></table></div><div class="section-label">Product Breakdown</div>
-<h2>Sales by Product Type</h2>
+<h2>Sales by Product Type <span class="src-tag src-tag-shopify"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="14" height="14" alt="Shopify"> Shopify</span></h2>
 <p class="section-desc">7-day performance grouped by product type vs previous period.</p>
 <div class="card">
   <div class="tab-row">
@@ -752,7 +762,7 @@ function sortTable(tableId, sortBy) {
   </table>
 </div>
 <script>window['product-type-table_data'] = [{"name":"Single Sheepskin Rug","revenue":2844,"units":36,"prevRevenue":2368.94,"prevUnits":30,"revenueDelta":20.053694901517133,"unitsDelta":20},{"name":"Other","revenue":0,"units":25,"prevRevenue":0,"prevUnits":24,"revenueDelta":0,"unitsDelta":4.166666666666666},{"name":"Brush","revenue":81.83,"units":6,"prevRevenue":123.84,"prevUnits":9,"revenueDelta":-33.92280361757106,"unitsDelta":-33.33333333333333},{"name":"Sheepskin Seat Pads","revenue":7696.16,"units":142,"prevRevenue":4434.06,"prevUnits":79,"revenueDelta":73.56914430567018,"unitsDelta":79.74683544303798},{"name":"Sheepskin Beanbags","revenue":4540,"units":6,"prevRevenue":749,"prevUnits":1,"revenueDelta":506.1415220293725,"unitsDelta":500},{"name":"Quatro Sheepskin Rug","revenue":2511,"units":9,"prevRevenue":1690,"prevUnits":6,"revenueDelta":48.57988165680474,"unitsDelta":50},{"name":"Sheepskin Pouffe","revenue":1625,"units":5,"prevRevenue":650,"prevUnits":2,"revenueDelta":150,"unitsDelta":150},{"name":"Hot Water Bottles","revenue":138,"units":2,"prevRevenue":138,"prevUnits":2,"revenueDelta":0,"unitsDelta":0},{"name":"Double Sheepskin Rug","revenue":4174,"units":26,"prevRevenue":2879.16,"prevUnits":18,"revenueDelta":44.972839300351495,"unitsDelta":44.44444444444444},{"name":"Sheepskin Cushions","revenue":1697,"units":23,"prevRevenue":1372,"prevUnits":18,"revenueDelta":23.688046647230323,"unitsDelta":27.77777777777778},{"name":"British Rarebreed Sheepskin Rug","revenue":565,"units":5,"prevRevenue":105,"prevUnits":1,"revenueDelta":438.09523809523813,"unitsDelta":400},{"name":"Cowhide Rug","revenue":2795,"units":9,"prevRevenue":1632.78,"prevUnits":5,"revenueDelta":71.18044072073396,"unitsDelta":80},{"name":"Tibetan Sheepskin Rug","revenue":288,"units":2,"prevRevenue":507,"prevUnits":3,"revenueDelta":-43.19526627218935,"unitsDelta":-33.33333333333333},{"name":"Sexto Sheepskin Rug","revenue":1975,"units":5,"prevRevenue":1580,"prevUnits":4,"revenueDelta":25,"unitsDelta":25},{"name":"Reindeer Hides","revenue":229.99,"units":1,"prevRevenue":0,"prevUnits":0,"revenueDelta":100,"unitsDelta":100},{"name":"Throws & Blankets","revenue":175,"units":1,"prevRevenue":660,"prevUnits":4,"revenueDelta":-73.48484848484848,"unitsDelta":-75},{"name":"Icelandic Sheepskins","revenue":1077.69,"units":9,"prevRevenue":241.11,"prevUnits":2,"revenueDelta":346.97026253577206,"unitsDelta":350},{"name":"Berber Rug","revenue":1400,"units":1,"prevRevenue":0,"prevUnits":0,"revenueDelta":100,"unitsDelta":100},{"name":"Belmont Cowhide Belt","revenue":150,"units":2,"prevRevenue":150,"prevUnits":2,"revenueDelta":0,"unitsDelta":0},{"name":"Cashmere Socks","revenue":56.82,"units":1,"prevRevenue":220,"prevUnits":4,"revenueDelta":-74.17272727272729,"unitsDelta":-75},{"name":"Winslow Purse","revenue":148.23,"units":1,"prevRevenue":0,"prevUnits":0,"revenueDelta":100,"unitsDelta":100},{"name":"Sheepskin Stools","revenue":0,"units":0,"prevRevenue":1190,"prevUnits":2,"revenueDelta":-100,"unitsDelta":-100},{"name":"Cowhide Pouffe","revenue":0,"units":0,"prevRevenue":425,"prevUnits":1,"revenueDelta":-100,"unitsDelta":-100},{"name":"Gift Card","revenue":0,"units":0,"prevRevenue":163,"prevUnits":1,"revenueDelta":-100,"unitsDelta":-100}]; sortTable('product-type-table', 'revenue');</script>
-<h2>Sales by Product</h2>
+<h2>Sales by Product <span class="src-tag src-tag-shopify"><img src="https://www.google.com/s2/favicons?domain=shopify.com&sz=32" width="14" height="14" alt="Shopify"> Shopify</span></h2>
 <p class="section-desc">7-day product performance vs previous period. Toggle between revenue and units ordered. Showing top 10 of 101.</p>
 <div class="card">
   <div class="tab-row">
@@ -1035,7 +1045,7 @@ function sortTable(tableId, sortBy) {
     <td class="text-right">1.90%</td>
     <td class="text-right"><span class="positive">+7.5%</span></td>
     <td></td><td></td><td></td>
-  </tr></tbody></table></div><h2>Google Shopping Products</h2><p class="section-desc">Top 5 by spend.</p><div class="card"><p class="section-desc">Top 5 of 5 shopping products by spend.</p>
+  </tr></tbody></table></div><h2>Google Shopping Products <span class="src-tag src-tag-google"><img src="https://www.google.com/s2/favicons?domain=google.com&sz=32" width="14" height="14" alt="Google"> Google</span></h2><p class="section-desc">Top 5 by spend.</p><div class="card"><p class="section-desc">Top 5 of 5 shopping products by spend.</p>
   <table><thead><tr><th>Product</th><th class="text-right">Spend</th><th class="text-right">Revenue</th><th class="text-right">ROAS</th><th class="text-right">Conv</th><th class="text-right">Clicks</th><th class="text-right">Spend &Delta;</th><th class="text-right">Rev &Delta;</th><th class="text-right">ROAS &Delta;</th></tr></thead><tbody><tr>
     <td style="max-width:240px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;" title="Giant Sheepskin Rug | Cream | Hyde & Hare | Sheepskin Carpet">Giant Sheepskin Rug | Cream | Hyde & Hare | Sheepskin Carpet</td>
     <td class="text-right">£241</td>
